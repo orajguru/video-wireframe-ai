@@ -1,8 +1,10 @@
 from openai import OpenAI
 import base64
 import os
+import streamlit as st
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+#client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(st.secrets.get("openai", {}).get("key"))
 
 def analyze_ui(image_path):
 
